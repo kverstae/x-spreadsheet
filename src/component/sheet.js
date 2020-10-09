@@ -483,7 +483,11 @@ function dataSetCellText(text, state = 'finished') {
   const { data, table } = this;
   // const [ri, ci] = selector.indexes;
   if (data.settings.mode === 'read') return;
-  data.setSelectedCellText(text, state);
+
+  const cell = this.data.getSelectedCell();
+  if (cell === null || cell.editable === undefined || cell.editable === true) {
+    data.setSelectedCellText(text, state);
+  }
   const { ri, ci } = data.selector;
   if (state === 'finished') {
     table.render();
