@@ -931,6 +931,11 @@ export default class DataProxy {
     return this.getCellStyleOrDefault(ri, ci);
   }
 
+  setCell(ri, ci, cell) {
+    const { rows } = this;
+    rows.setCell(ri, ci, cell, 'all');
+  }
+
   // state: input | finished
   setCellText(ri, ci, text, state) {
     const { rows, history, validations } = this;

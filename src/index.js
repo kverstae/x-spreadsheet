@@ -84,6 +84,11 @@ class Spreadsheet {
     return this;
   }
 
+  setCell(ri, ci, cell, sheetIndex = 0) {
+    this.datas[sheetIndex].setCell(ri, ci, cell);
+    return this;
+  }
+
   cell(ri, ci, sheetIndex = 0) {
     return this.datas[sheetIndex].getCell(ri, ci);
   }
